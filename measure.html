@@ -17,14 +17,15 @@ mapLink =
 '<a href="http://openstreetmap.org">openstreetmap</a>,'+'<a href="http://mapsnigeriainitiative.wordpress.com">mapsNI</a>';
 L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: ' &copy; ' + mapLink,maxZoom: 18}).addTo(map);
 
-$.getJSON('Cities.geojson', function(data) {
-var cem = L.geoJson(data, {
+
+var cem = [{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[-0.1969,5.55602]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[-13.67729,9.53795]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[-17.44406,14.6937]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[9.70428,4.04827]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.90591,7.37756]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[7.43879,10.52641]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[8.51672,12.00012]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.39467,6.45407]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[11.51667,3.86667]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[-8,12.65]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[-13.22994,8.484]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[13.15712,11.84692]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[-1.53388,12.36566]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[7.0134,4.77742]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[7.7227,11.11128]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[5.62575,6.33815]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[-4.033,5.3167]}}];
+
+L.geoJson(cem, {
 pointToLayer: function(feature, latlng){
 marker = L.marker(latlng);
 marker.bindPopup(feature.properties.address)
 return marker;
 }}).addTo(map);
-});
 
 
 </script>
